@@ -21,28 +21,6 @@ const ContactForm = () => {
     );
 };
 
-// // Function to handle checkbox change
-//   function handleCheckboxChange(event) {
-//       const value = event.target.value;
-
-//       // Check if the checkbox is checked or unchecked
-//       if (event.target.checked) {
-//           // Add the value to the array if checked
-//           selectedValues.push(value);
-//       } else {
-//           // Remove the value from the array if unchecked
-//           selectedValues = selectedValues.filter(item => item !== value);
-//       }
-//       setAccessories(selectedValues);
-//       // Log the current array to the console
-//       console.log(selectedValues);
-//   }
-
-//   // Add event listeners to each checkbox
-//   document.querySelectorAll('input[type="checkbox" onChange={handleCheckboxChange}]').forEach(checkbox => {
-//       checkbox.addEventListener('change', handleCheckboxChange);
-//   });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch('http://localhost:8000/api/order', {
@@ -55,6 +33,9 @@ const ContactForm = () => {
 
     const data = await res.json();
     console.log(data);
+
+    alert(data.message);
+
   }
 
   return (
